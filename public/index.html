@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vanguard Academy - World-Class School Management System</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🏛️</div>
+        <div class="brand-text">
+          <h2>VANGUARD</h2>
+          <span>ACADEMY OS</span>
+        </div>
+      </div>
+
+      <ul class="nav-menu">
+        <div class="nav-section-title">Core Management</div>
+        <li class="nav-item">
+          <a class="nav-link active" data-view="dashboard" onclick="App.navigateTo('dashboard')">
+            <span class="icon">📊</span>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-view="students" onclick="App.navigateTo('students')">
+            <span class="icon">🎓</span>
+            <span>Students (SIS)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-view="teachers" onclick="App.navigateTo('teachers')">
+            <span class="icon">👩‍🏫</span>
+            <span>Faculty & Staff</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-view="classes" onclick="App.navigateTo('classes')">
+            <span class="icon">🏫</span>
+            <span>Classes & Subjects</span>
+          </a>
+        </li>
+
+        <div class="nav-section-title">Academics & Operations</div>
+        <li class="nav-item">
+          <a class="nav-link" data-view="attendance" onclick="App.navigateTo('attendance')">
+            <span class="icon">📋</span>
+            <span>Smart Attendance</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-view="exams" onclick="App.navigateTo('exams')">
+            <span class="icon">📝</span>
+            <span>Exams & Report Cards</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-view="fees" onclick="App.navigateTo('fees')">
+            <span class="icon">💳</span>
+            <span>Fee Billing & Receipts</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-view="notices" onclick="App.navigateTo('notices')">
+            <span class="icon">📢</span>
+            <span>Campus Notice Board</span>
+          </a>
+        </li>
+
+        <div class="nav-section-title">Portals & Resilience</div>
+        <li class="nav-item">
+          <a class="nav-link" data-view="portal" onclick="App.navigateTo('portal')">
+            <span class="icon">🌟</span>
+            <span>Student & Parent Portal</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-view="system" onclick="App.navigateTo('system')">
+            <span class="icon">⚡</span>
+            <span>High-Availability & HA</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="system-status-badge">
+          <span class="pulse-dot"></span>
+          <span>HA Cluster Active • WAL</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 class="breadcrumb-title" id="pageTitleBreadcrumb">Campus Dashboard & Metrics</h1>
+          <span id="topbarRoleBadge" class="role-badge role-admin">admin</span>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Quick Role Switcher for seamless testing of all 5 personas -->
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <label for="roleSwitcherSelect" style="font-size: 11.5px; font-weight: 700; color: #64748b; text-transform: uppercase;">Simulate Persona:</label>
+            <select id="roleSwitcherSelect" class="role-switcher-select" onchange="App.switchRole(this.value)">
+              <option value="admin">Principal (Admin)</option>
+              <option value="teacher">Faculty (Teacher)</option>
+              <option value="accountant">Bursar (Accountant)</option>
+              <option value="student">Lucas Vance (Student)</option>
+              <option value="parent">Robert Vance (Parent)</option>
+            </select>
+          </div>
+
+          <!-- User Info Widget -->
+          <div class="user-profile-widget">
+            <div class="user-avatar" id="topbarUserAvatar">M</div>
+            <div class="user-details">
+              <span class="user-name" id="topbarUserName">Dr. Marcus Sterling</span>
+              <span class="user-email" id="topbarUserEmail">admin@school.edu</span>
+            </div>
+          </div>
+
+          <button class="btn-logout" onclick="API.logout()" title="Logout">Log out</button>
+        </div>
+      </header>
+
+      <!-- Body / Views -->
+      <main class="content-body" id="mainContent">
+        <!-- Rendered by App and Views -->
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/students.js"></script>
+  <script src="/js/teachers.js"></script>
+  <script src="/js/classes.js"></script>
+  <script src="/js/attendance.js"></script>
+  <script src="/js/exams.js"></script>
+  <script src="/js/fees.js"></script>
+  <script src="/js/notices.js"></script>
+  <script src="/js/system.js"></script>
+  <script src="/js/portal.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

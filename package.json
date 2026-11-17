@@ -1,0 +1,35 @@
+{
+  "name": "school-managment-sytem",
+  "version": "1.0.0",
+  "description": "High-Availability, Fault-Tolerant, World-Class School Management System in Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node cluster.js",
+    "dev": "node server.js",
+    "seed": "node database/seed.js",
+    "test": "node -e \"const { checkIntegrity } = require('./database/db'); console.log('DB Integrity:', checkIntegrity());\""
+  },
+  "keywords": [
+    "school-management",
+    "high-availability",
+    "fault-tolerant",
+    "sqlite-wal",
+    "enterprise",
+    "education"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.2.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.3.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.10.1",
+    "uuid": "^13.0.0"
+  }
+}

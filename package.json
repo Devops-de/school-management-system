@@ -17,8 +17,8 @@
     "enterprise",
     "education"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Pankaj Rai <raipankajrai74@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "better-sqlite3": "^13.2.0",
